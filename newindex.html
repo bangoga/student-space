@@ -34,9 +34,9 @@
     <div class="row full">
         <div class="col-sm-3"></div>
         <div class="col-sm-6 svg_box justify-content-center">
-          <svg class="icon_svg" width="426" height="309" viewBox="0 0 426 309" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="icon_svg" width="426" height="348" viewBox="0 0 426 348" fill="none" xmlns="http://www.w3.org/2000/svg"> 
 
-            <ellipse cx="218.383" cy="176.857" rx="198.368" ry="110.264" transform="rotate(-13.2713 218.383 176.857)" fill="#FFDF95"/>
+            <ellipse id="bckcrcle" cx="218.383" cy="176.857" rx="198.368" ry="110.264" transform="rotate(-13.2713 218.383 176.857)" fill="#FFDF95"/>
             <path d="M84 221.439L247.863 251.233C257.067 233.024 255.705 224.317 243.33 211.077L92.4199 176.102C106.021 204.6 100.554 216.015 84 221.439Z" fill="white" stroke="black"/>
             <path d="M338.539 211.077C349.777 196.896 348.29 189.814 343.72 177.397L243.33 211.077C255.705 224.317 257.067 233.024 247.863 251.233L338.539 211.077Z" fill="#7A7878" stroke="black"/>
             <path d="M207.059 141.127L91.7722 176.102L242.682 211.077L343.072 177.397L207.059 141.127Z" fill="#7A7878" stroke="black"/>
@@ -51,6 +51,40 @@
             
             </svg>
 
+            <div class="form-pages hide">
+              <form class="form-cl">
+                <div class="form-group">
+                  <label style="margin-top: 2rem;"for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control stnt_select" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label style="margin-top: 2rem;"for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control stnt_select" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label style="margin-top: 2rem;"for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control stnt_select" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </form>
+            </div>
         </div>
         <div class="col-sm-3"></div>
     </div>
@@ -59,6 +93,38 @@
 
     
     <script>
+      
+      
+      $(document).ready(function(){
+        setTimeout(function(){
+          animate_out();
+          
+        },1000);
+      });
+
+
+      function animate_out(){
+        var svg = $('.icon_svg');
+        svg.addClass("fade_out_svg");
+
+        setTimeout(function(){
+          svg.addClass("hide");
+        },300);
+        setTimeout(function(){
+          animate_in();
+        },500);
+      }
+
+      function animate_in(){
+        var svg = $('.form-pages');
+        svg.removeClass("hide");
+        svg.addClass('show');
+        setTimeout(function(){
+          svg.addClass('fade_in_svg');
+          svg.addClass('effect2');
+        },300);
+      }
+      
 
     </script>
 </body>

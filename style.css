@@ -55,15 +55,82 @@ body{
 
   .icon_svg{
       margin-left:5rem;
+      transition: all 0.3s;
   }
 
   .swigle{
     stroke-dasharray: 100;
     animation: dash 10s linear reverse infinite;
   }
+
   
   @keyframes dash {
     to {
       stroke-dashoffset: 1000;
     }
+  }
+
+  .icon_svg.fade_out_svg{
+    transform: scale(0.01);
+  }
+
+  .icon_svg.hide{
+    display: none;
+  }
+
+
+  .form-pages{
+    background-color: #FFDF95;
+    height: 70vh;
+    width: auto;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
+
+  .form-pages.hide{
+    display: none;
+    transition: all 0.3s;
+  }
+
+  .form-pages.show{
+    transition: all 0.3s;
+    transform: scale(0.001);
+  }
+
+  .form-pages.show.fade_in_svg{
+    transform: scale(1);
+    z-index: 1;
+  }
+
+  .form-cl{
+    margin-left:2rem !important;
+    margin-left:2rem !important;
+    width: 88%;
+    border: none;
+  }
+
+  .stnt_select{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #333333;
+    margin-bottom: -1px;
+    border-radius: 0%;
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+  }
+
+  .stnt_select:hover,.stnt_select:active,.stnt_select:focus {
+    border-color: rgba(100,210,255, 0.55);
+    -webkit-box-shadow:  0px 4px 2px -2px rgba(82,168,236,.8);
+    -moz-box-shadow:     0px 4px 2px -2px rgba(82,168,236,.8);
+    box-shadow:          0px 4px 2px -2px rgba(82,168,236,.8);
+    background-color: #ffe8b2
   }
