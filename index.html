@@ -1,301 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-      #map {
-        height: 100%;
-      }
-  </style>
-    
+
+  <title>Student Space</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
+  <nav>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Source Code</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <div class="row full">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 svg_box justify-content-center">
+          <svg class="icon_svg" width="426" height="348" viewBox="0 0 426 348" fill="none" xmlns="http://www.w3.org/2000/svg"> 
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+            <ellipse id="bckcrcle" cx="218.383" cy="176.857" rx="198.368" ry="110.264" transform="rotate(-13.2713 218.383 176.857)" fill="#FFDF95"/>
+            <path d="M84 221.439L247.863 251.233C257.067 233.024 255.705 224.317 243.33 211.077L92.4199 176.102C106.021 204.6 100.554 216.015 84 221.439Z" fill="white" stroke="black"/>
+            <path d="M338.539 211.077C349.777 196.896 348.29 189.814 343.72 177.397L243.33 211.077C255.705 224.317 257.067 233.024 247.863 251.233L338.539 211.077Z" fill="#7A7878" stroke="black"/>
+            <path d="M207.059 141.127L91.7722 176.102L242.682 211.077L343.072 177.397L207.059 141.127Z" fill="#7A7878" stroke="black"/>
+            <path d="M95.6583 213.667L250.454 244.108M101.487 202.657L254.34 234.393M101.487 190.998L254.34 224.678" stroke="black"/>
+            <path d="M167.094 166.352L168.093 90.8875C168.348 71.6198 262.948 72.8721 262.693 92.1397L262.481 108.196L284.554 108.488C309.781 108.822 310.805 150.59 283.97 152.643C267.635 153.893 263.008 153.513 261.887 153.025L261.694 167.605C261.439 186.872 166.839 185.62 167.094 166.352Z" fill="white"/>
+            <path d="M284.71 114.914L268.932 114.705L268.538 144.49C268.538 144.49 265.136 146.07 284.315 144.699C303.495 143.328 302.741 115.153 284.71 114.914Z" fill="#FFDF95" stroke="black"/>
+            <path d="M174.368 93.3794C174.212 105.154 256.199 106.239 256.355 94.4647C256.511 82.69 174.524 81.6047 174.368 93.3794Z" fill="#502020" stroke="black"/>
+            
+            <path class="swigle" d="M193.607 69.5453C193.607 69.5453 197.634 63.1749 193.777 56.7002C189.921 50.2255 197.868 45.5129 193.99 40.6439C190.112 35.7748 189.345 34.1587 194.202 24.5875C199.06 15.0163 194.404 9.33394 194.404 9.33394" stroke="black"/>
+            <path class="swigle" d="M239.435 70.1519C239.435 70.1519 236.504 61.2806 239.605 57.3068C242.707 53.3331 243.696 46.1196 239.818 41.2505C235.94 36.3814 235.173 34.7653 240.031 25.1941C244.888 15.6229 240.232 9.94056 240.232 9.94056" stroke="black"/>
+            <path class="swigle" d="M215.785 69.8389C215.785 69.8389 219.812 63.4685 215.955 56.9938C212.099 50.5191 220.046 45.8065 216.168 40.9374C212.29 36.0683 221.184 27.3535 216.381 24.8811C211.577 22.4086 216.582 9.62751 216.582 9.62751" stroke="black"/>
+            
+            </svg>
+
+            <div class="form-pages hide">
+              <form class="form-cl">
+                <div class="form-group">
+                  <label style="margin-top: 2rem;"for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control stnt_select" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label style="margin-top: 2rem;"for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control stnt_select" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label style="margin-top: 2rem;"for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control stnt_select" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
     </div>
   </div>
-</nav>
-  
-<div class="container-fluid text-center">    
-  <div  class="row content">
-    <div style="height:600px;" class="col-sm-2 sidenav">
-        <form>
-         <br>
-            <div class="form-row">
-            <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>1500</option>
-                <option>2000</option>
-                <option>2500</option>
-                <option>3000</option>
-                <option>4000</option>
-            </select>
-        <label for="inputCity">Area Radius</label>
-            </div>
-            
-            
-            
-              <div class="form-row">
-            <select id="inputtype" class="form-control">
-                <option selected>Choose...</option>
-                <option>cafe</option>
-                <option>library</option>
-            </select>
-        <label for="inputCity">Type of Place</label>
-            </div>
-             <div class="form-row">            
-            
-            </div>
-        </form>
-        <button id="find" class="btn btn-block btn-lg btn-primary">Find Now!</button>
-    </div>
-    <div style="height:100%;" class="col-sm-8 text-left"> 
-          <div id="map"></div>
-      <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
-    </div>
     
-      <!-- (All the Information classified) -->
+
     
-    <div style="height:600px;" class="col-sm-2 sidenav">
-      <div id ="t1" class="well">
-        <p>ADS</p>
-      </div>
-      <div id ="t2"  class="well">
-        <p>ADS</p>
-      </div>
-      <div id ="t3"  class="well">
-        <p>ADS</p>
-      </div>
-      <div id ="t4"  class="well">
-        <p>ADS</p>
-      </div>
-      <div id ="t5"  class="well">
-        <p>ADS</p>
-      </div>
-    </div>
+    <script>
       
       
-  </div>
-</div>
-
-<footer style="position: fixed; left: 0;bottom: 0;width: 100%;" class="container-fluid text-center fixed">
-  <p>Footer Text</p>
-</footer>
-<script>
- 
-var button= document.getElementById('find');
-    
-
-
-var allPlaces=[];
-var radius_g = 1500;
-var typeselect = "cafe";
-button.onclick= function(){
-    radius_g= document.getElementById('inputState').value;
-    typeselect = document.getElementById('inputtype').value;
-    initGeolocation();
-}
-
-var reviews = []; //appeal, atmosphere, decor, facilities, food, overall, quality, service;
-var ratings = [];
-var closingTimes =[];
-
-function initGeolocation()
-{
-  console.log('initGeolocation');
-        if( navigator.geolocation )
-        {
-          // Call getCurrentPosition with success and failure callbacks
-          navigator.geolocation.getCurrentPosition( success, fail );
-    }
-    else
-    {
-          alert("Sorry, your browser does not support geolocation services.");
-    }
-}
-
-var map;
-
-function success(position)
-{
-  console.log('success');
-      // Define the coordinates as a Google Maps LatLng Object
-      var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-      // Prepare the map options
-      var mapOptions =
-     {
-                 zoom: 14,
-                 center: coords,
-                 mapTypeControl: false,
-                 navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-                 mapTypeId: google.maps.MapTypeId.ROADMAP
-       };
-       // Create the map, and place it in the map_canvas div
-       map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
- //search for schools within 1500 metres of our current location, and as a marker use school.png
-    // school then school else library. 
- if(typeselect==='library'){
-     placesRequest('Schools',coords,radius_g,['library'],'');
- }
-    else{
-        placesRequest('Cafe', coords, radius_g,['cafe'],'images/school.png');
-    }
-// placesRequest('Schools',coords,radius_g,['library'],'');
-// placesRequest('Cafe', coords, radius_g,['cafe'],'images/school.png');
-       // Place the initial marker
-       var marker = new google.maps.Marker({
-                 position: coords,
-                 map: map,
-                 title: "Current location"
-       });
-   }
-
-   function fail(){
-     console.log('fail');
-   }
-
-
-   function placesRequest(title,latlng,radius,types,icon){
-
-     console.log('placesRequest');
-     //Parameters for our places request
-     var request = {
-       location: latlng,
-       radius: radius,
-       types: types,
-       language: 'en-gb',
-       opennow: true
-     };
-     //Make the service call to google
-     console.log(map);
-     var infowindow = new google.maps.InfoWindow();
-     var callPlaces = new google.maps.places.PlacesService(map);
-     console.log(callPlaces);
-
-    callPlaces.nearbySearch(request, callback);
-
-     console.log('caca');
-     console.log(ratings);
-
-   }
-
-  function callback(results, status) {
-    console.log('callback1');
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0, result; result = results[i]; i++) {
-           // addMarker(result);
-            console.log(results[i]);
-            allPlaces [i]=results[i];//.place_id;
-            ratings[i] = Number(results[i].rating);
-        }
-        for (i = 0; i <= ratings.length-1 ; i++){
-          for(j = 0; j<= ratings.length-1-i; j++){
-            if(ratings[j] < ratings[j+1]){
-              var temp = ratings[j];
-              ratings[j] = ratings[j+1];
-              ratings[j+1] = temp;
-
-              temp = allPlaces[j];
-              allPlaces[j] = allPlaces[j+1];
-              allPlaces[j+1]= temp;
-            }
-          }
-        }
+      $(document).ready(function(){
+        setTimeout(function(){
+          animate_out();
           
-    for (var i = 0; i<=5; i++) {
-            addMarker(allPlaces[i]);
-        }
-          
+        },1000);
+      });
+
+
+      function animate_out(){
+        var svg = $('.icon_svg');
+        svg.addClass("fade_out_svg");
+
+        setTimeout(function(){
+          svg.addClass("hide");
+        },300);
+        setTimeout(function(){
+          animate_in();
+        },500);
       }
-    loadvals();
-  }
 
-function addMarker(place) {
-  var marker = new google.maps.Marker({
-    map: map,
-    position: place.geometry.location,
-    icon: {
-      url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
-      anchor: new google.maps.Point(10, 10),
-      scaledSize: new google.maps.Size(10, 20)
-    }
-  });
+      function animate_in(){
+        var svg = $('.form-pages');
+        svg.removeClass("hide");
+        svg.addClass('show');
+        setTimeout(function(){
+          svg.addClass('fade_in_svg');
+          svg.addClass('effect2');
+        },300);
+      }
+      
 
-  }
-    
-function loadvals(){
-    document.getElementById("t1").innerHTML = allPlaces[0].rating + "<br>" + allPlaces[0].name;
-    document.getElementById("t2").innerHTML = allPlaces[1].rating + "<br>" + allPlaces[1].name;
-    document.getElementById("t3").innerHTML = allPlaces[2].rating + "<br>" + allPlaces[2].name;
-    document.getElementById("t4").innerHTML = allPlaces[3].rating + "<br>" + allPlaces[3].name;
-    document.getElementById("t5").innerHTML = allPlaces[4].rating + "<br>" + allPlaces[4].name;
-}
-    
-
-
-
-  // map key: AIzaSyAAcbCnT0gfMxDYqfGGUqKsJSIKM_qUVLs
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAcbCnT0gfMxDYqfGGUqKsJSIKM_qUVLs&callback=initGeolocation&libraries=places"></script>
+    </script>
 </body>
 </html>

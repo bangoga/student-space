@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+      #map {
+        height: 100%;
+      }
+  </style>
+    
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div  class="row content">
+    <div style="height:600px;" class="col-sm-2 sidenav">
+        <form>
+         <br>
+            <div class="form-row">
+            <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>1500</option>
+                <option>2000</option>
+                <option>2500</option>
+                <option>3000</option>
+                <option>4000</option>
+            </select>
+        <label for="inputCity">Area Radius</label>
+            </div>
+            
+            
+            
+              <div class="form-row">
+            <select id="inputtype" class="form-control">
+                <option selected>Choose...</option>
+                <option>cafe</option>
+                <option>library</option>
+            </select>
+        <label for="inputCity">Type of Place</label>
+            </div>
+             <div class="form-row">            
+            
+            </div>
+        </form>
+        <button id="find" class="btn btn-block btn-lg btn-primary">Find Now!</button>
+    </div>
+    <div style="height:100%;" class="col-sm-8 text-left"> 
+          <div id="map"></div>
+      <hr>
+      <h3>Test</h3>
+      <p>Lorem ipsum...</p>
+    </div>
+    
+      <!-- (All the Information classified) -->
+    
+    <div style="height:600px;" class="col-sm-2 sidenav">
+      <div id ="t1" class="well">
+        <p>ADS</p>
+      </div>
+      <div id ="t2"  class="well">
+        <p>ADS</p>
+      </div>
+      <div id ="t3"  class="well">
+        <p>ADS</p>
+      </div>
+      <div id ="t4"  class="well">
+        <p>ADS</p>
+      </div>
+      <div id ="t5"  class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+      
+      
+  </div>
+</div>
+
+<footer style="position: fixed; left: 0;bottom: 0;width: 100%;" class="container-fluid text-center fixed">
+  <p>Footer Text</p>
+</footer>
+<script>
+ 
+var button= document.getElementById('find');
+    
+
+
+var allPlaces=[];
+var radius_g = 1500;
+var typeselect = "cafe";
+button.onclick= function(){
+    radius_g= document.getElementById('inputState').value;
+    typeselect = document.getElementById('inputtype').value;
+    initGeolocation();
+}
+
+var reviews = []; //appeal, atmosphere, decor, facilities, food, overall, quality, service;
+var ratings = [];
+var closingTimes =[];
+
+function initGeolocation()
+{
+  console.log('initGeolocation');
+        if( navigator.geolocation )
+        {
+          // Call getCurrentPosition with success and failure callbacks
+          navigator.geolocation.getCurrentPosition( success, fail );
+    }
+    else
+    {
+          alert("Sorry, your browser does not support geolocation services.");
+    }
+}
+
+var map;
+
+function success(position)
+{
+  console.log('success');
+      // Define the coordinates as a Google Maps LatLng Object
+      var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      // Prepare the map options
+      var mapOptions =
+     {
+                 zoom: 14,
+                 center: coords,
+                 mapTypeControl: false,
+                 navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                 mapTypeId: google.maps.MapTypeId.ROADMAP
+       };
+       // Create the map, and place it in the map_canvas div
+       map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+ //search for schools within 1500 metres of our current location, and as a marker use school.png
+    // school then school else library. 
+ if(typeselect==='library'){
+     placesRequest('Schools',coords,radius_g,['library'],'');
+ }
+    else{
+        placesRequest('Cafe', coords, radius_g,['cafe'],'images/school.png');
+    }
+// placesRequest('Schools',coords,radius_g,['library'],'');
+// placesRequest('Cafe', coords, radius_g,['cafe'],'images/school.png');
+       // Place the initial marker
+       var marker = new google.maps.Marker({
+                 position: coords,
+                 map: map,
+                 title: "Current location"
+       });
+   }
+
+   function fail(){
+     console.log('fail');
+   }
+
+
+   function placesRequest(title,latlng,radius,types,icon){
+
+     console.log('placesRequest');
+     //Parameters for our places request
+     var request = {
+       location: latlng,
+       radius: radius,
+       types: types,
+       language: 'en-gb',
+       opennow: true
+     };
+     //Make the service call to google
+     console.log(map);
+     var infowindow = new google.maps.InfoWindow();
+     var callPlaces = new google.maps.places.PlacesService(map);
+     console.log(callPlaces);
+
+    callPlaces.nearbySearch(request, callback);
+
+     console.log('caca');
+     console.log(ratings);
+
+   }
+
+  function callback(results, status) {
+    console.log('callback1');
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0, result; result = results[i]; i++) {
+           // addMarker(result);
+            console.log(results[i]);
+            allPlaces [i]=results[i];//.place_id;
+            ratings[i] = Number(results[i].rating);
+        }
+        for (i = 0; i <= ratings.length-1 ; i++){
+          for(j = 0; j<= ratings.length-1-i; j++){
+            if(ratings[j] < ratings[j+1]){
+              var temp = ratings[j];
+              ratings[j] = ratings[j+1];
+              ratings[j+1] = temp;
+
+              temp = allPlaces[j];
+              allPlaces[j] = allPlaces[j+1];
+              allPlaces[j+1]= temp;
+            }
+          }
+        }
+          
+    for (var i = 0; i<=5; i++) {
+            addMarker(allPlaces[i]);
+        }
+          
+      }
+    loadvals();
+  }
+
+function addMarker(place) {
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location,
+    icon: {
+      url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
+      anchor: new google.maps.Point(10, 10),
+      scaledSize: new google.maps.Size(10, 20)
+    }
+  });
+
+  }
+    
+function loadvals(){
+    document.getElementById("t1").innerHTML = allPlaces[0].rating + "<br>" + allPlaces[0].name;
+    document.getElementById("t2").innerHTML = allPlaces[1].rating + "<br>" + allPlaces[1].name;
+    document.getElementById("t3").innerHTML = allPlaces[2].rating + "<br>" + allPlaces[2].name;
+    document.getElementById("t4").innerHTML = allPlaces[3].rating + "<br>" + allPlaces[3].name;
+    document.getElementById("t5").innerHTML = allPlaces[4].rating + "<br>" + allPlaces[4].name;
+}
+    
+
+
+
+  // map key: AIzaSyAAcbCnT0gfMxDYqfGGUqKsJSIKM_qUVLs
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAcbCnT0gfMxDYqfGGUqKsJSIKM_qUVLs&callback=initGeolocation&libraries=places"></script>
+</body>
+</html>
